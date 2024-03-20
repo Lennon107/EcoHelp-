@@ -2,17 +2,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
-
 public class Main {
-  
     private Map<String, String> baseDeDatosResiduos;
-
     public Main() {
         this.baseDeDatosResiduos = new HashMap<>();
         // Inicializar la base de datos de residuos con algunos ejemplos
         inicializarBaseDeDatosResiduos();
     }
-
     // Función para inicializar la base de datos de residuos
     private void inicializarBaseDeDatosResiduos() {
         // Ejemplos de residuos y su clasificación
@@ -20,7 +16,6 @@ public class Main {
         baseDeDatosResiduos.put("Cáscara de banana", "Orgánico");
         baseDeDatosResiduos.put("Papel de aluminio", "No reciclable");
     }
-
     // Función para escanear y clasificar un residuo
     public String clasificarResiduo(String residuo) {
         if (baseDeDatosResiduos.containsKey(residuo)) {
@@ -29,7 +24,6 @@ public class Main {
             return "Desconocido"; 
         }
     }
-
     // Función para clasificar el residuo
     public String obtenerInstrucciones(String categoriaResiduo) {
         switch (categoriaResiduo.toLowerCase()) {
@@ -49,7 +43,6 @@ public class Main {
         System.out.println("Notificación educativa: " + mensaje);
     }
 
-
     public String generarMensajeAleatorio() {
         String[] mensajes = {
             "Recuerda siempre lavar los envases antes de reciclarlos para evitar la contaminación.",
@@ -59,16 +52,13 @@ public class Main {
             "Apagar los electrodomésticos cuando no se están utilizando puede ahorrar energía y reducir las emisiones de carbono."
         };
 
-        
         Random random = new Random();
         return mensajes[random.nextInt(mensajes.length)];
     }
-
     // Función para obtener estadísticas sobre la clasificación de residuos
     public void obtenerEstadisticas(String usuario, int cantidadRegistros) {
         System.out.println("Estadísticas para el usuario " + usuario + ":");
         System.out.println("Cantidad de registros de hábitos de clasificación de residuos: " + cantidadRegistros);
-        // Aquí podrías incluir más estadísticas según la necesidad de tu aplicación
     }
 
     // Función para iniciar sesión
@@ -79,12 +69,15 @@ public class Main {
         System.out.println("Por favor ingresa tu contraseña:");
         String contraseña = scanner.nextLine();
 
-     
         if (usuario.equals("usuario") && contraseña.equals("contraseña")) {
             System.out.println("Inicio de sesión exitoso para el usuario: " + usuario);
         } else {
             System.out.println("Inicio de sesión fallido. Verifica tus credenciales.");
         }
     }
-
+    public static void main(String[] args) {
+        Main main = new Main();
+        main.iniciarSesion();
+    }
+}
    
